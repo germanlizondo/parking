@@ -3,8 +3,6 @@ package sample;
 import java.util.ArrayList;
 
 public class Parking {
-    private int maxPlazasCoche = 100;
-    private int maxPlazasMoto = 200;
     private ArrayList<Coche> coches = new ArrayList<Coche>();
     private ArrayList<Moto> motos = new ArrayList<Moto>();
     private ArrayList<CocheListener> listenersCoche = new ArrayList<>();
@@ -12,16 +10,25 @@ public class Parking {
     public Parking() {
     }
 
-
-
     public void anadirCoche(Coche coche){
         this.coches.add(coche);
+        this.avisaCocheEntrado(this.coches.size());
+    }
+
+    public void salirCoche(int coche){
+        this.coches.remove(coche);
+        this.avisaCocheEntrado(this.coches.size());
     }
 
 
 
-    public void avisaCocheEntrado(){
+    public void avisaCocheEntrado(int numeroCoches){
 
+        CocheEntratEvent cocheEntratEvent = new CocheEntratEvent(this,numeroCoches);
+
+        for (CocheListener listener: this.listenersCoche) {
+            listener.cocheEntra(cocheEntratEvent);
+        }
     }
 
 
@@ -41,21 +48,6 @@ public class Parking {
 
     //GETTERS && SETTERS
 
-    public int getMaxPlazasCoche() {
-        return maxPlazasCoche;
-    }
-
-    public void setMaxPlazasCoche(int maxPlazasCoche) {
-        this.maxPlazasCoche = maxPlazasCoche;
-    }
-
-    public int getMaxPlazasMoto() {
-        return maxPlazasMoto;
-    }
-
-    public void setMaxPlazasMoto(int maxPlazasMoto) {
-        this.maxPlazasMoto = maxPlazasMoto;
-    }
 
     public ArrayList<Coche> getCoches() {
         return coches;
