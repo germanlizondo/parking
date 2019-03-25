@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Parking {
     private ArrayList<Coche> coches = new ArrayList<Coche>();
     private ArrayList<Moto> motos = new ArrayList<Moto>();
-    private ArrayList<CocheListener> listenersCoche = new ArrayList<>();
+    private ArrayList<AutoListener> listenersCoche = new ArrayList<>();
 
     public Parking() {
     }
@@ -24,19 +24,19 @@ public class Parking {
 
     public void avisaCocheEntrado(int numeroCoches){
 
-        CocheEntratEvent cocheEntratEvent = new CocheEntratEvent(this,numeroCoches);
+        AutoEntratEvent cocheEntratEvent = new AutoEntratEvent(this,numeroCoches);
 
-        for (CocheListener listener: this.listenersCoche) {
+        for (AutoListener listener: this.listenersCoche) {
             listener.cocheEntra(cocheEntratEvent);
         }
     }
 
 
-    public void anadirObserverCoche(CocheListener cl){
+    public void anadirObserverCoche(AutoListener cl){
         this.listenersCoche.add(cl);
     }
 
-    public void eliminarObserverCoche(CocheListener cl){
+    public void eliminarObserverCoche(AutoListener cl){
         this.listenersCoche.remove(cl);
     }
 

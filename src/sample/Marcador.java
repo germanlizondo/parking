@@ -2,18 +2,18 @@ package sample;
 
 import java.util.EventObject;
 
-public class MarcadorCoche implements CocheListener {
+public class Marcador implements AutoListener {
 
     private int numeroPlazas;
     private int numeroPlazasOcupadas = 0;
     private int numeroPlazasLibres;
 
-    public MarcadorCoche() {
+    public Marcador() {
     }
 
     @Override
-    public void cocheEntra(CocheEntratEvent cocheEntratEvent) {
-        this.numeroPlazasOcupadas = cocheEntratEvent.getNumCoches();
+    public void cocheEntra(AutoEntratEvent autoEntratEvent) {
+        this.numeroPlazasOcupadas = autoEntratEvent.getNumCoches();
 
         this.numeroPlazasLibres = numeroPlazas - numeroPlazasOcupadas;
     }

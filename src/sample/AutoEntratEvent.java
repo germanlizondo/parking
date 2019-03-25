@@ -2,11 +2,11 @@ package sample;
 
 import java.util.EventObject;
 
-public class CocheEntratEvent extends EventObject {
+public class AutoEntratEvent extends EventObject {
 
     private int numeroCoches;
 
-    public CocheEntratEvent(Object source,int numeroCoches) {
+    public AutoEntratEvent(Object source,int numeroCoches) {
         super(source);
         this.numeroCoches = numeroCoches;
     }

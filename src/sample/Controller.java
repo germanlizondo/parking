@@ -15,11 +15,11 @@ public class Controller {
 
     //COCHE
     private Parking parkingCoche = new Parking();
-    private MarcadorCoche marcadorCoche  = new MarcadorCoche() ;
+    private Marcador marcadorCoche  = new Marcador() ;
 
     //MOTOS
     private Parking parkingMotos = new Parking();
-    private MarcadorCoche marcadorMotos  = new MarcadorCoche() ;
+    private Marcador marcadorMotos  = new Marcador() ;
 
 
     //COCHE
